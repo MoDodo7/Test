@@ -37,32 +37,58 @@ namespace LinkedList
       
           
         }
-    internal void DeleteNode(int key)
+    internal void deleteNode(int key)
     {
       
         if (head == null)
         {
             return;
         }
+        Node prev = head;
+        Node Current = head.next;
+      
+        while(Current != null&&Current.data!=key)
+        {
+            prev = Current;
+            Current = Current.next;
+
+        }
+        if(Current.data==key)
+        {
+            prev.next = Current.next;
+           
+        }
         
-        Node temp = head;
-        Node prev = null; 
-        if(temp.data==key)
-        {
-            temp = null;
-        }
-        while(temp != null&&temp.data!=key)
-        {
-            prev = temp;
-            temp = temp.next;
-
-        }
-
-        prev.next = temp.next;
-        temp = null;
     }
 
+    internal void deleteHead()
+    {
+        if (head == null)
+        { return;}
+           
+        Node n = head;
+        head = n.next;
+        n = null;
+    }
 
+    internal void deleteTail()
+    {
+        if (head == null)
+        { return; }
+       else if(head.next==null)
+        { head = null; 
+        }
+        else
+        { Node N = head;
+        while(N.next.next!=null)
+            {
+                N = N.next;
+
+            }
+            N.next = null;
+           }
+
+    }
 }
     
    
