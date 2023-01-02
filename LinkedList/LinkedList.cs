@@ -37,7 +37,7 @@ namespace LinkedList
 
      
 
-        internal bool deleteHead(int key)
+        private bool deleteHead(int key)
         {
             if (head is null || head.data != key)
             {
@@ -49,7 +49,7 @@ namespace LinkedList
 
         }
 
-        internal bool deleteAny(int key)
+        private bool deleteAny(int key)
         {
             Node temp = head;
             while (temp.next != null && temp.next.data != key)
