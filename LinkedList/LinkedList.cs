@@ -56,8 +56,13 @@ namespace LinkedList
             {
                 temp = temp.next;
             }
-            
+            if (temp.next is null)
+            {
+                return false;
+            }
+
             temp.next = temp.next.next;
+         
             return true;
         }
 
@@ -91,9 +96,33 @@ namespace LinkedList
             Console.WriteLine("null");
 
 
-
-
         }
+        internal void sortList()
+        {
+        Node temp=head;   
+        Node firstNode=null;  
+        
+            int val = 0;  
+        while(temp!=null)  
+           {
+             firstNode = temp.next;  
+            while(firstNode!=null)  
+                {  
+                    if(temp.data> firstNode.data)  
+                        {  
+                            val= firstNode.data;
+                            firstNode.data = temp.data;  
+                            temp.data=val;  
+                        }
+                    firstNode = firstNode.next;  
+                   }
+                temp = temp.next;  
+      
+            }
+           
+
+  
+} 
 
 
     }

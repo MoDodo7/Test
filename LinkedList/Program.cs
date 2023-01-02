@@ -7,15 +7,22 @@ namespace LinkedList
         static void Main(string[] args)
         {
             LinkedList L = new LinkedList();
-          for(int i = 0; i < 11; i++)
-            {
-                L.insert(i);
-            }
-           
+            L.insert(3);
+            L.insert(2);
+            L.insert(1);
+            L.insert(-3);
+            L.insert(8);
+            L.insert(11);
+            L.insert(14);
+            L.insert(17);
+
+
             L.printList();
-            L.delete(1);
+          
             Console.WriteLine("//////////////////////////////////");
+            L.sortList();
             L.printList();
+
             Console.ReadLine();
         }
     }
