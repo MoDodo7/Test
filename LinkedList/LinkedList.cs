@@ -35,25 +35,7 @@ namespace LinkedList
 
         }
 
-        internal void deleteNode(int key)
-        {
-
-            Node prev = head;
-            Node Current = head.next;
-
-            while (Current != null && Current.data != key)
-            {
-                prev = Current;
-                Current = Current.next;
-
-            }
-            if (Current.data == key)
-            {
-                prev.next = Current.next;
-
-            }
-
-        }
+     
 
         internal bool deleteHead(int key)
         {
@@ -67,15 +49,30 @@ namespace LinkedList
 
         }
 
-        internal bool delete(int key)
+        internal bool deleteAny(int key)
         {
             Node temp = head;
-            while (temp.next != null && temp.data == key)
+            while (temp.next != null && temp.next.data != key)
             {
                 temp = temp.next;
             }
-            temp = temp.next.next;
+            
+            temp.next = temp.next.next;
             return true;
+        }
+
+        internal bool delete(int key)
+        {
+            if(deleteHead(key)||deleteAny(key))
+            {
+                Console.WriteLine("Element Deleted");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Element Not Found");
+                return false;
+            }
         }
 
         internal void printList()

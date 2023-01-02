@@ -13,7 +13,7 @@ namespace LinkedList
             }
            
             L.printList();
-            L.delete(5);
+            L.delete(1);
             Console.WriteLine("//////////////////////////////////");
             L.printList();
             Console.ReadLine();
