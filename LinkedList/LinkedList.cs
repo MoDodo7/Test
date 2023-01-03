@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace LinkedList
 {
-    internal class LinkedList
-    {
-        internal Node head;
-        public Node getLastNodeOfList()
+
+    internal class LinkedList<T>
+    { 
+        internal Node<T> head;
+        public Node<T> getLastNodeOfList()
         {
-            Node L = head;
+            Node<T> L = head;
             while (L.next != null)
             {
                 L = L.next;
@@ -19,27 +20,27 @@ namespace LinkedList
           
             return L;
         }
-        internal void insert(int data)
+        internal void insert(T data)
         {
             if (head == null)
             {
-                Node n = new Node(data);
+                Node<T> n = new Node<T>(data);
                 n.next = null;
                 head = n;
             }
             else
             {
-                Node L = getLastNodeOfList();
-                L.next = new Node(data);
+                Node<T> L = getLastNodeOfList();
+                L.next = new Node<T>(data);
             }
 
         }
 
      
 
-        private bool deleteHead(int key)
+        private bool deleteHead(T key)
         {
-            if (head is null || head.data != key)
+            if (head is null || head.data)
             {
                 return false;
             }
@@ -49,10 +50,10 @@ namespace LinkedList
 
         }
 
-        private bool deleteAny(int key)
+        private bool deleteAny(T key)
         {
-            Node temp = head;
-            while (temp.next != null && temp.next.data != key)
+            Node<T> temp = head;
+            while (temp.next != null && temp.next.data.CompareTo(key))
             {
                 temp = temp.next;
             }
@@ -66,7 +67,7 @@ namespace LinkedList
             return true;
         }
 
-        internal bool delete(int key)
+        internal bool delete(T key)
         {
             if(deleteHead(key)||deleteAny(key))
             {
@@ -83,7 +84,7 @@ namespace LinkedList
         internal void printList()
         {
 
-            Node n = head;
+            Node<T> n = head;
             while (n != null) 
             { 
 
@@ -97,33 +98,19 @@ namespace LinkedList
 
 
         }
-        internal void sortList()
+        internal int Length()
         {
-        Node temp=head;   
-        Node firstNode=null;  
-        
-            int val = 0;  
-        while(temp!=null)  
-           {
-             firstNode = temp.next;  
-            while(firstNode!=null)  
-                {  
-                    if(temp.data> firstNode.data)  
-                        {  
-                            val= firstNode.data;
-                            firstNode.data = temp.data;  
-                            temp.data=val;  
-                        }
-                    firstNode = firstNode.next;  
-                   }
-                temp = temp.next;  
-      
-            }
-           
-
+        Node<T> temp=head;
+            var count = 0;
+                 while (temp!=null)
+                    {
+                        count++;
+                        temp = temp.next;
+                     }
+                 return count;
   
-} 
-
+        }
+       
 
     }
     

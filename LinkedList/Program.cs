@@ -6,24 +6,16 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
-            LinkedList L = new LinkedList();
+
+            LinkedList<int> L = new LinkedList<int>();
             L.insert(3);
-            L.insert(2);
-            L.insert(1);
-            L.insert(-3);
-            L.insert(8);
-            L.insert(11);
-            L.insert(14);
-            L.insert(17);
-
-
-            L.printList();
+            L.insert(4);
+            L.insert(5);
+            L.insert(6);
+            L.insert(7);
+            Console.WriteLine(L.Length());
+                
           
-            Console.WriteLine("//////////////////////////////////");
-            L.sortList();
-            L.printList();
-
-            Console.ReadLine();
         }
     }
 }

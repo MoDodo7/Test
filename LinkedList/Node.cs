@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace LinkedList
 {
-    internal class Node
-    {
-        internal int data;
-        internal Node next;
-        public Node(int data)
+    internal class Node<T>
+    { 
+        internal T data;
+        internal Node<T> next;
+        public Node(T data)
         {
             this.data = data;
             next = null;
         }
-       
-        public int MyProperty { get; set; }
+
+        public override string ToString()
+        {
+            return $"{data.ToString()} -> ";
+        }
+
+
     }
 }
